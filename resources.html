@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - MentDoc</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap">
+    <style>
+        :root {
+            --primary-color: #5d78ff;
+            --primary-light: rgba(93, 120, 255, 0.1);
+            --secondary-color: #8e9ef4;
+            --accent-color: #ff7e5d;
+            --light-bg: #f8f9fa;
+            --dark-text: #2d3748;
+            --light-text: #4a5568;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1491895200226-46772d384c92?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: var(--shadow);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        /* Resources Section */
+        .resources-section {
+            flex: 1;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .resources-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+        }
+
+        .resources-section > p {
+            text-align: center;
+            color: var(--light-text);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .resource-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .resource-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .resource-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 3px;
+        }
+
+        .resource-card p {
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+            flex-grow: 1;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-color);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+
+        .resource-link:hover {
+            color: #e04b28;
+            transform: translateX(5px);
+        }
+
+        .resource-link::after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .resource-link:hover::after {
+            transform: translateX(3px);
+        }
+
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            background-color: var(--light-bg);
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Featured Resource */
+        .featured-resource {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            box-shadow: var(--shadow);
+        }
+
+        .featured-resource h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .featured-resource p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .featured-link {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .featured-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--light-text);
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-resource {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .resources-section h2 {
+                font-size: 2rem;
+            }
+
+            .resource-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">M</div>
+                <h1>MentDoc</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="resources.html" class="active">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="resources-section">
+            <h2>Mental Health Resources</h2>
+            <p>Explore our collection of carefully curated resources to support your mental health journey.</p>
+            
+            <div class="category-filter">
+                <button class="filter-btn active">All Resources</button>
+                <button class="filter-btn">Crisis Support</button>
+                <button class="filter-btn">Self-Help</button>
+                <button class="filter-btn">Therapy</button>
+                <button class="filter-btn">Community</button>
+            </div>
+            
+            <div class="featured-resource">
+                <h3>Featured Resource</h3>
+                <p>Our comprehensive guide to managing anxiety during stressful times, with practical exercises and expert advice.</p>
+                <a href="#" class="featured-link">View Featured Guide</a>
+            </div>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <h3>Crisis Support</h3>
+                    <p>Immediate help for when you're in crisis or need urgent support, including hotlines and emergency resources.</p>
+                    <a href="#" class="resource-link">View resources</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Self-Help Guides</h3>
+                    <p>Practical tools and techniques to manage stress and anxiety, with step-by-step exercises.</p>
+                    <a href="#" class="resource-link">Explore guides</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Therapy Options</h3>
+                    <p>Learn about different therapy approaches (CBT, DBT, etc.) and what might work best for you.</p>
+                    <a href="#" class="resource-link">Learn more</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Community Support</h3>
+                    <p>Connect with others who understand what you're going through in our moderated support groups.</p>
+                    <a href="#" class="resource-link">Find groups</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Mental Health Conditions</h3>
+                    <p>Comprehensive information about various mental health conditions and evidence-based treatments.</p>
+                    <a href="#" class="resource-link">Read more</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Wellbeing Practices</h3>
+                    <p>Daily practices including meditation, journaling, and mindfulness to improve your wellbeing.</p>
+                    <a href="#" class="resource-link">Discover practices</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 MentDoc. This is not a substitute for professional mental health care.</p>
+            <p>If you're in crisis, please contact your local emergency services.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Here you would typically filter the resources
+                // This is just a placeholder for the functionality
+                console.log('Filter by:', btn.textContent);
+            });
+        });
+
+        // Animate resource cards when they come into view
+        const resourceCards = document.querySelectorAll('.resource-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        resourceCards.forEach((card, index) => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
