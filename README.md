@@ -38,7 +38,7 @@ MentDoc is an AI-powered chatbot designed to provide **empathetic and confidenti
 3. Open `index.html` in your browser.
 
 ## 🌍 Live Demo
-[https://abishek2005-tech.github.io/Mentdoc_Mental_care_ai_chatbot/](#) *(Replace with actual link)*
+Project Link: https://abishek2005-tech.github.io/Mentdoc_Mental_care_ai_chatbot/
 
 ## 🛠️ Future Enhancements
 - 🗣️ Voice input support.
